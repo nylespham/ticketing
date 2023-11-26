@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build Tag Image') {
             steps {
-                sh 'sudo docker tag auth:latest nylesx/ticketing:auth'
+                sh 'sudo docker tag auth:latest xnylesx/ticketing:auth'
             }
         }
         stage('Login with Access Token') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Push Image to Repository') {
             steps {
-                sh 'sudo docker push nylesx/ticketing:auth'
+                sh 'sudo docker push xnylesx/ticketing:auth'
             }
         }
     }
