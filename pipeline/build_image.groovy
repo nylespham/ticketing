@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Build Tag Image') {
             steps {
-                sh 'sudo docker tag auth:latest xnylesx/ticketing/auth:latest'
+                sh 'sudo docker tag auth:latest nylesx/ticketing:auth'
             }
         }
         stage('Push Image to Repository') {
             steps {
-                sh 'sudo docker push nylesx/ticketing/auth:latest'
+                sh 'sudo docker push nylesx/ticketing:auth'
             }
         }
     }
