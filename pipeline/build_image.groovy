@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Login Docker Hub') {
             steps {
-                docker login --password-stdin -u ${username} -p ${password}
+                docker login --password-stdin ${password} -u ${username}  
                 echo 'Login successfully!'
             }
         }
