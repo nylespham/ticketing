@@ -1,9 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build Image') {
+        stage('Login Docker Hub') {
             steps {
-                echo 'Hello World'
+                docker login -u xnylesx -p Strator@202301
+                echo 'Login successfully!'
             }
         }
     }
