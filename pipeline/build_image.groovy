@@ -1,3 +1,6 @@
+environment {
+    USERNAME="xnylesx"
+}
 pipeline {
     agent any
     stages {
@@ -9,6 +12,13 @@ pipeline {
         stage('Build Tag Image') {
             steps {
                 sh 'sudo docker tag auth:latest nylesx/ticketing:auth'
+            }
+        }
+        stage('Login with Access Token') {
+            steps {
+                sh 'read -s -p "Enter Docker Hub personal access token: " ACCESS_TOKEN'
+                sh 'echo "$ACCESS_TOKEN" | docker login -u $USERNAME --password-stdin'
+                sh 'unset ACCESS_TOKEN'
             }
         }
         stage('Push Image to Repository') {
