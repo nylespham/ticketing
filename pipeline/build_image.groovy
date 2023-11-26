@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Login with Access Token') {
             steps {
-                sh 'echo {$ACCESS_TOKEN} | sudo docker login -u {$USERNAME} --password-stdin'
+                sh 'echo ${ACCESS_TOKEN} | sudo docker login -u ${USERNAME} --password-stdin'
             }
         }
         stage('Push Image to Repository') {
@@ -26,4 +26,13 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            cleanWs(cleanWhenNotBuilt: false,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true,
+                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+                               [pattern: '.propsfile', type: 'EXCLUDE']])
+        }
 }
