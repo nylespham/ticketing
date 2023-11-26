@@ -1,16 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Test docker command') {
-            steps {
-                sh 'sudo docker ps'
-                echo 'Login successfully!'
-            }
-        }
-        stage('Login Docker Hub') {
+        stage('Build Image') {
             steps {
                 sh 'sudo docker build -t auth:latest -f Dockerfile . --build-arg SERVICE_NAME=auth'
-                echo 'Build successfully!'
+            }
+        }
+        stage('Build Tag Image') {
+            steps {
+                sh 'sudo docker tag auth:latest xnylesx/ticketing/auth:latest'
+            }
+        }
+        stage('Push Image to Repository') {
+            steps {
+                sh 'sudo docker push nylesx/ticketing/auth:latest'
             }
         }
     }
