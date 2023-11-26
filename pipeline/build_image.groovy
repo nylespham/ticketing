@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Login with Access Token') {
             steps {
-                sh 'echo {$ACCESS_TOKEN} | docker login -u {$USERNAME} --password-stdin'
+                sh 'echo {$ACCESS_TOKEN} | sudo docker login -u {$USERNAME} --password-stdin'
             }
         }
         stage('Push Image to Repository') {
