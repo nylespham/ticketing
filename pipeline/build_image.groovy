@@ -1,7 +1,3 @@
-environment {
-  password = "Strator@202301"
-  username = "xnylesx"
-}
 pipeline {
     agent any
     stages {
@@ -13,8 +9,8 @@ pipeline {
         }
         stage('Login Docker Hub') {
             steps {
-                docker login --password-stdin ${password} -u ${username}  
-                echo 'Login successfully!'
+                docker build -t auth:latest -f Dockerfile .
+                echo 'Build successfully!'
             }
         }
     }
