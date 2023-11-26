@@ -2,6 +2,10 @@ pipeline {
     environment {
         USERNAME="xnylesx"
         ACCESS_TOKEN="dckr_pat_nuGt6Ln4l7yp7tNimKCTlNQGS0c"
+        PROJECT_ID = '<YOUR_PROJECT_ID>'
+        CLUSTER_NAME = '<YOUR_CLUSTER_NAME>'
+        LOCATION = '<YOUR_CLUSTER_LOCATION>'
+        CREDENTIALS_ID = '<YOUR_CREDENTIAS_ID>'
     }
     agent any
     stages {
@@ -23,6 +27,18 @@ pipeline {
         stage('Push Image to Repository') {
             steps {
                 sh 'sudo docker push xnylesx/ticketing:auth'
+            }
+        }
+        stage('Deploy to GKE Cluster') {
+            steps{
+                step([
+                $class: 'KubernetesEngineBuilder',
+                projectId: env.PROJECT_ID,
+                clusterName: env.CLUSTER_NAME,
+                location: env.LOCATION,
+                manifestPattern: 'manifest.yaml',
+                credentialsId: env.CREDENTIALS_ID,
+                verifyDeployments: true])
             }
         }
     }
