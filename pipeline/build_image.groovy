@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test docker command') {
             steps {
-                docker ps
+                sh 'docker ps'
                 echo 'Login successfully!'
             }
         }
