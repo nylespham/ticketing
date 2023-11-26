@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Login Docker Hub') {
             steps {
-                sh 'sudo docker build -t auth:latest -f Dockerfile . --build-arg SERVICENAME=auth'
+                sh 'sudo docker build -t auth:latest -f Dockerfile . --build-arg SERVICE_NAME=auth'
                 echo 'Build successfully!'
             }
         }
