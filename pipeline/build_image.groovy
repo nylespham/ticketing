@@ -1,7 +1,8 @@
-environment {
-    USERNAME="xnylesx"
-}
 pipeline {
+    environment {
+        USERNAME="xnylesx"
+        ACCESS_TOKEN="dckr_pat_nuGt6Ln4l7yp7tNimKCTlNQGS0c"
+    }
     agent any
     stages {
         stage('Build Image') {
@@ -16,9 +17,7 @@ pipeline {
         }
         stage('Login with Access Token') {
             steps {
-                sh 'read -s -p "Enter Docker Hub personal access token: " ACCESS_TOKEN'
-                sh 'echo "$ACCESS_TOKEN" | docker login -u $USERNAME --password-stdin'
-                sh 'unset ACCESS_TOKEN'
+                sh 'echo {$ACCESS_TOKEN} | docker login -u {$USERNAME} --password-stdin'
             }
         }
         stage('Push Image to Repository') {
