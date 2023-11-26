@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Login Docker Hub') {
             steps {
-                docker build -t auth:latest -f Dockerfile .
+                sh 'docker build -t auth:latest -f Dockerfile .'
                 echo 'Build successfully!'
             }
         }
