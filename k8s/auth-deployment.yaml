@@ -14,7 +14,9 @@ spec:
     spec:
       containers:
         - name: auth
-          image: auth:latest
+          image: xnylesx/ticketing:auth
+        imagePullSecrets:
+          - name: regcred
 ---
 apiVersion: v1
 kind: Service
