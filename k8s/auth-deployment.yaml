@@ -15,8 +15,8 @@ spec:
       containers:
         - name: auth
           image: xnylesx/ticketing:auth
-        imagePullSecrets:
-          - name: regcred
+      imagePullSecrets:
+        - name: regcred
 ---
 apiVersion: v1
 kind: Service
