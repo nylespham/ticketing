@@ -2,10 +2,10 @@ pipeline {
     environment {
         USERNAME="xnylesx"
         ACCESS_TOKEN="dckr_pat_nuGt6Ln4l7yp7tNimKCTlNQGS0c"
-        PROJECT_ID = '<YOUR_PROJECT_ID>'
-        CLUSTER_NAME = '<YOUR_CLUSTER_NAME>'
-        LOCATION = '<YOUR_CLUSTER_LOCATION>'
-        CREDENTIALS_ID = '<YOUR_CREDENTIAS_ID>'
+        PROJECT_ID = 'blogapp-405616'
+        CLUSTER_NAME = 'gcp-nylesdev-cluster'
+        LOCATION = 'asia-southeast1'
+        CREDENTIALS_ID = '83f721f1-fb9e-4922-ab4e-b653e49edf10'
     }
     agent any
     stages {
