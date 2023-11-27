@@ -6,6 +6,7 @@ pipeline {
         CLUSTER_NAME = 'gcp-nylesdev-cluster'
         LOCATION = 'asia-southeast1'
         CREDENTIALS_ID = '83f721f1-fb9e-4922-ab4e-b653e49edf10'
+        SERVICE ='k8s/auth-deployment.yaml'
     }
     agent any
     stages {
