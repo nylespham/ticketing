@@ -6,7 +6,7 @@ RUN mkdir -p /ticketing/${SERVICE_NAME}
 
 WORKDIR /ticketing/${SERVICE_NAME}
 
-COPY ${SERVICE_NAME}/package.json .
+COPY ${SERVICE_NAME}/. .
 
 RUN npm install
 
