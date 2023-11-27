@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build Image') {
             steps {
-                sh 'sudo docker build -t auth:latest -f Dockerfile . --build-arg SERVICE_NAME=auth'
+                sh 'sudo docker build -t auth:latest -f dockerfiles/Dockerfile . --build-arg SERVICE_NAME=auth'
             }
         }
         stage('Build Tag Image') {
