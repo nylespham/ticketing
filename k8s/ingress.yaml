@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    - host: 34.84.159.145
+    - host: gke-jenkins-nylesdev-cluster-7bf4cb89-dns.cluster.local
       http:
         paths:
           - path: /api/users/?(.*)
