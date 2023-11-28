@@ -4,7 +4,7 @@ pipeline {
         ACCESS_TOKEN="dckr_pat_nuGt6Ln4l7yp7tNimKCTlNQGS0c"
         PROJECT_ID = 'blogapp-405616'
         CLUSTER_NAME = 'jenkins-nylesdev-cluster'
-        LOCATION = 'asia-southeast1'
+        LOCATION = 'asia-northeast1'
         CREDENTIALS_ID = '83f721f1-fb9e-4922-ab4e-b653e49edf10'
         SERVICE ='k8s/auth-deployment.yaml'
     }
