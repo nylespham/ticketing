@@ -8,13 +8,12 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    - host: ticketing.nylesdev.com
-      http:
-        paths:
-          - path: /api/users/?(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: auth-service
-                port:
-                  number: 3000
+    http:
+      paths:
+        - path: /api/users/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: auth-service
+              port:
+                number: 3000
