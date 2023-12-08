@@ -4,6 +4,7 @@ import { DatabaseConnectionError } from "../errors/database-connection-error";
 import { RequestValidationError } from "../errors/request-validation-error";
 import { User } from "../models/user";
 import { BadRequestError } from "../errors/bad-request-error";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -34,6 +35,18 @@ router.post("/api/users/signup", [
         const user = User.build({ email, password });
         await user.save();
 
+        // Generate JWT
+        const userJWT = jwt.sign({
+            user_id: user.id,
+            email: user.email
+        }, "secret",{
+            expiresIn: "1h"
+        })
+
+        // Store it on session object
+        req.session = {
+            jwt: userJWT
+        }
         res.status(201).send(user);
 
         throw new DatabaseConnectionError();
