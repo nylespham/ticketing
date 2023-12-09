@@ -8,13 +8,13 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    host: gke-jenkins-nylesdev-cluster-7bf4cb89-dns.cluster.local
-    http:
-      paths:
-        - path: /api/users/?(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: auth-service
-              port:
-                number: 3000
+    - host: gke-jenkins-nylesdev-cluster-7bf4cb89-dns.cluster.local
+      http:
+        paths:
+          - path: /api/users/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-service
+                port:
+                  number: 3000
