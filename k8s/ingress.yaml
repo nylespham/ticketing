@@ -12,7 +12,7 @@ spec:
     - host: gke-jenkins-nylesdev-cluster-7bf4cb89-dns.cluster.local
       http:
         paths:
-          - path: /api/users/?(.*)
+          - path: /api/users/[A-Z0-9]
             pathType: Prefix
             backend:
               service:
