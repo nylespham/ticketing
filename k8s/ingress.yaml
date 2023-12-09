@@ -6,6 +6,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.org/path-regex: "case_insensitive"
+    nginx.org/server-snippets: |
+      location / {
+          return 302 /api/users;
+      }
 spec:
   ingressClassName: nginx
   rules:
