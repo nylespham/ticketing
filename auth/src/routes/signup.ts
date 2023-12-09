@@ -39,7 +39,7 @@ router.post("/api/users/signup", [
         const userJWT = jwt.sign({
             user_id: user.id,
             email: user.email
-        }, "secret",{
+        }, process.env.JWT_TOKEN!,{
             expiresIn: "1h"
         })
 
