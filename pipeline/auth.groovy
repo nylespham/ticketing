@@ -34,14 +34,7 @@ pipeline {
             }
         }
         stage('Deploy to Kubernetes Cluster') {
-            steps{
-                withKubeConfig([
-                credentialsId: env.CREDENTIALS_ID,
-                caCertificate: env.CA_CERTIFICATE,
-                serverUrl: env.SERVER_URL,
-                contextName: env.CONTEXT_NAME,
-                clusterName: env.CLUSTER_NAME,
-                namespace: env.NAMESPACE]) {
+            steps {
                     sh 'kubectl apply -f ${SERVICE}'
                 }
             }
