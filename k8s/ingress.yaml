@@ -8,8 +8,7 @@ metadata:
     nginx.ingress.jubernetes.io/use-regex: "true"
 spec:
   rules:
-    - host: "https://4a4bcd4c-0e87-48cc-9fae-14901d14f306.k8s.ondigitalocean.com"
-      http:
+    - http:
         paths:
           - path: /api/users/?(.*)
             pathType: Prefix
