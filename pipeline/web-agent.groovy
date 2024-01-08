@@ -15,12 +15,12 @@ pipeline {
     stages {
         stage('Build Image') {
             steps {
-                sh 'sudo docker build -t auth:latest -f dockerfiles/Dockerfile . --build-arg SERVICE_NAME=auth'
+                sh 'sudo docker build -t auth:latest -f dockerfiles/Dockerfile . --build-arg SERVICE_NAME=client'
             }
         }
         stage('Build Tag Image') {
             steps {
-                sh 'sudo docker tag auth:latest xnylesx/ticketing:auth'
+                sh 'sudo docker tag auth:latest xnylesx/ticketing:client'
             }
         }
         stage('Login with Access Token') {
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Push Image to Repository') {
             steps {
-                sh 'sudo docker push xnylesx/ticketing:auth'
+                sh 'sudo docker push xnylesx/ticketing:client'
             }
         }
         stage('Deploy to Kubernetes Cluster') {
