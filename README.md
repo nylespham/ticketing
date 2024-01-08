@@ -14,4 +14,3 @@ to override the default configuration. let’s create it values.yamland keep the
 <p>helm upgrade --install -f values.yaml ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace</p>
 <p>Command output should look like this:</p>
 </br>
-<img src="./document/ingress-example1.webp" style="width: 1000px; height: 700px">
