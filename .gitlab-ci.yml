@@ -4,7 +4,7 @@ build:
   services:
     - docker:20.10.16-dind
   script:
-    - docker build -t auth:latest -f dockerfiles/Dockerfile . --build-arg SERVICE_NAME=$SERVICE_NAME'
+    - docker build -t auth:latest -f dockerfiles/Dockerfile . --build-arg SERVICE_NAME=$SERVICE_NAME
     - docker tag auth:latest xnylesx/ticketing:auth
     - docker login -u $USERNAME -p $PASSWORD
     - docker push xnylesx/ticketing:$SERVICE_NAMEauth
