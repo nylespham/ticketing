@@ -6,14 +6,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.org/path-regex: "case_insensitive"
-    nginx.org/server-snippets: |
-      location / {
-          return 302 /api/users;
-      }
 spec:
   ingressClassName: nginx
   rules:
-    - host: gke-jenkins-nylesdev-cluster-7bf4cb89-dns.cluster.local
+    - host: https://4a4bcd4c-0e87-48cc-9fae-14901d14f306.k8s.ondigitalocean.com
       http:
         paths:
           - path: /api/users/[A-Z0-9]
