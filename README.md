@@ -1,16 +1,8 @@
-# ticketing
+# Ticketing Application
 
-<h2>Install nginx ingress on GKE:</h2>
-
-<p>GKE has helm installed already</p>
-<p>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx</p>
-<p>helm repo update</p>
-
-<p>Since we are deploying nginx ingress using helm charts, we have to create a values.yamlfile 
-to override the default configuration. let’s create it values.yamland keep the below content in this.</p>
-
-<strong>Deploying Nginx ingress controller with default ingress class nginxand service type ClusterIP with NEG annotation</strong>
-
-<p>helm upgrade --install -f values.yaml ingress-nginx ingress-nginx --repo https://kubernetes.github.io/ingress-nginx --namespace ingress-nginx --create-namespace</p>
-<p>Command output should look like this:</p>
-</br>
+<h2>Techonogy Used:</h2>
+<p>Javascript with NextJs, Typescript with Nodejs</p>
+<h2>CI/CD Options:</h2>
+<p>GitLab CI, Github Action, Jenkins</p>
+<h2>Hosted on: </h2>
+<p>Kubernetes CLuster with Nginx Ingress</p>
