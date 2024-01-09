@@ -4,7 +4,7 @@ metadata:
   name: ingress-service
   namespace: default
   annotations:
-    nginx.ingress.jubernetes.io/use-regex: /
+    nginx.ingress.kubernetes.io/use-regex: /
 spec:
   ingressClassName: nginx
   rules:
