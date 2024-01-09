@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dummy
+  template:
+    metadata:
+      labels:
+        app: dummy
+    spec:
+      containers:
+        - name: auth
+          image: nginx:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dummy-service
+spec:
+  selector:
+    app: dummy
+  ports:
+    - name: dummy
+      protocol: TCP
+      port: 80
+      targetPort: 80
